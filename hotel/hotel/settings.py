@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_forms_materialize',
-    'main',
+    'visitor',
+    'staff'
 ]
 
 CRISPY_TEMPLATE_PACK = 'materialize_css_forms'
