@@ -14,6 +14,31 @@
     <title>Welcome visitor</title>
   </head>
 
+  <body>
+
+
+
+
+
+
+
+<nav class="navbar navbar-inverse">
+
+  <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active"  type='pull-right' href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Reservations</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Reviews</a>
+  </li>
+
+<a class="nav-item nav-link" type='pull-right' href="{% url 'visitor:logout' %}">Logout</a>
+ <a class="nav-item nav-link" href="{% url 'visitor:login' %}">Login</a>
+
+
   <body class="body">
 
 <a href="something" class="button7">The Hotel</a>
