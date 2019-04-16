@@ -1,19 +1,170 @@
 
-.nav {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
+
+
+
+.body{
+	background-color: #2b0f0a;
+}
+
+.h1{
+position:absolute; left:540px; top:30px;
+color: #2dce98;
+
+
+}
+
+.image{
+
+position:absolute; left:350px; top:100px;
+ z-index: -1;
+
+}
+
+*{font-family: Roboto Light ;
 }
 
 
-.body {
-        background-image: url("https://lensdrop.imgix.net/photos/h4z10/stock-photo-h4z10.jpeg?mark=%2Fwm.png&markalign=center%2Cmiddle&markh=0.1&w=1200&h=650&s=b55eac49f32afc9680f4d60fbf24fb7f");
-          background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center; 
-} 
+.button2{
+	color:#7c79b5 ;
 
-h1{
-			color: #0000FF;
-		}
+	position:absolute; left:390px; top:105px;
+
+}
+.button2:hover {
+	text-decoration: none;
+      background-color: #7c79b5;
+      color: white;
+      border-radius: 6;
+
+ }
+
+
+.button3{
+
+	color:#79b57e;
+	position:absolute; left:518px; top:105px;
+}
+.button3:hover {
+	text-decoration: none;
+      background-color:#79b57e;
+      color: white;
+      border-radius: 6;
+ }
+
+
+.button4{
+	color:#d6a4a2;
+	position:absolute; left:625px; top:105px;
+}
+.button4:hover {
+	text-decoration: none;
+      background-color: #d6a4a2;
+      color: white;
+      border-radius: 6;
+ }
+
+
+
+.button5{
+	color:#f209ea;
+	position:absolute; left:745px; top:105px;
+}
+.button5:hover {
+	text-decoration: none;
+      background-color: #f209ea;
+      color: white;
+      border-radius: 6;
+ }
+
+
+.button6{
+	color:#09f1d2;
+	position:absolute; left:864px; top:105px;
+}
+.button6:hover {
+	text-decoration: none;
+      background-color: #09f1d2;
+      color: white;
+ }
+
+.text1{
+
+	font-size: 15px;
+}
+
+.card{
+	position:absolute; left:515px; top:115px;
+	background-color: #f209ea;
+	color: white;
+
+}
+
+
+
+.button7{
+	color:#7c79b5 ;
+
+	position:absolute; left:390px; top:20px;
+
+}
+.button7:hover {
+	text-decoration: none;
+      background-color: #7c79b5;
+      color: white;
+      border-radius: 6;
+
+ }
+
+
+.button8{
+
+	color:#79b57e;
+	position:absolute; left:518px; top:20px;
+}
+.button8:hover {
+	text-decoration: none;
+      background-color:#79b57e;
+      color: white;
+      border-radius: 6;
+ }
+
+
+.button9{
+	color:#d6a4a2;
+	position:absolute; left:625px; top:20px;
+}
+.button9:hover {
+	text-decoration: none;
+      background-color: #d6a4a2;
+      color: white;
+      border-radius: 6;
+ }
+
+
+
+.button10{
+	color:#f209ea;
+	position:absolute; left:745px; top:20px;
+}
+.button10:hover {
+	text-decoration: none;
+      background-color: #f209ea;
+      color: white;
+      border-radius: 6;
+ }
+
+
+.button11{
+	color:#09f1d2;
+	position:absolute; left:864px; top:20px;
+}
+.button11:hover {
+	text-decoration: none;
+      background-color: #09f1d2;
+      color: white;
+ }
+
+
+
+
 
