@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 # Create your models here.
@@ -11,7 +12,7 @@ class RoomType(models.Model):
 
 class Room(models.Model):
 	room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE)
-	number = models.IntegerField()
+	number = models.IntegerField(null=True, default=None, blank=True)
 	# number is the room number to display, XYY, X being floor, YY being room number on floor
 	active = models.BooleanField(default=True)
 
@@ -21,3 +22,8 @@ class Booking(models.Model):
 	start_date = models.DateTimeField()
 	end_date = models.DateTimeField()
 	occupants = models.IntegerField()
+
+	@staticmethod
+	def find_room_for_booking(C, D):
+		available_rooms = Room.objects.exclude(Q(booking__start_date__lt=C, booking__end_date__gt=C) | Q(booking__start_date__gte=C, booking__start_date__lt=D))
+		return available_rooms
