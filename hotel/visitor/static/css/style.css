@@ -164,7 +164,21 @@ position:absolute; left:350px; top:100px;
       color: white;
  }
 
+.form{
+	color: #09f1d2;
+	text-align: center;
 
+
+}
+.login_title {
+	color: white;
+	text-align: center;
+}
+
+.booking_text{
+	color: #fcb902;
+	text-align: center;
+}
 
 
 
