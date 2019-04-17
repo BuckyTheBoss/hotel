@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Q
+from django.utils import timezone
 
 
 # Create your models here.
@@ -24,6 +25,17 @@ class Booking(models.Model):
 	occupants = models.IntegerField()
 
 	@staticmethod
-	def find_room_for_booking(C, D):
-		available_rooms = Room.objects.exclude(Q(booking__start_date__lt=C, booking__end_date__gt=C) | Q(booking__start_date__gte=C, booking__start_date__lt=D))
+	def find_available_rooms(start_date, end_date):
+		available_rooms = Room.objects.exclude(
+			Q(booking__start_date__lt=start_date, booking__end_date__gt=start_date) | 
+			Q(booking__start_date__gte=start_date, booking__start_date__lt=end_date))
 		return available_rooms
+
+class Review(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	title = models.CharField(max_length=120)
+	content = models.TextField()
+	likes = models.IntegerField(default=0)
+	timestamp = models.DateTimeField(default=timezone.now)
+	booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
+
