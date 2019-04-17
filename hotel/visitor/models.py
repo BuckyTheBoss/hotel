@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.utils import timezone
+from django.forms import ModelForm
 
 
 # Create your models here.
@@ -26,9 +27,20 @@ class Booking(models.Model):
 
 	@staticmethod
 	def find_available_rooms(start_date, end_date):
-		available_rooms = Room.objects.exclude(
-			Q(booking__start_date__lt=start_date, booking__end_date__gt=start_date) | 
-			Q(booking__start_date__gte=start_date, booking__start_date__lt=end_date))
+		'''get all rooms without bookings whose
+			   start date is before C,
+				   and end date is after C
+			   OR whose start date is on or after C
+				   and start date is before D. '''
+
+		bookings_a = Booking.objects.filter(
+			start_date__lt=start_date,
+			end_date__gt=start_date)
+		bookings_b = Booking.objects.filter(
+			start_date__gte=start_date,
+			start_date__lte=end_date)
+		available_rooms = Room.objects.exclude(booking__in=bookings_a) \
+			.exclude(booking__in=bookings_b)
 		return available_rooms
 
 class Review(models.Model):
@@ -37,5 +49,8 @@ class Review(models.Model):
 	content = models.TextField()
 	likes = models.IntegerField(default=0)
 	timestamp = models.DateTimeField(default=timezone.now)
-	booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
 
+class ReviewForm(ModelForm):    
+	class Meta:
+		model = Review
+		fields = ['title', 'content',]
