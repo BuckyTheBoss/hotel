@@ -2,19 +2,36 @@
 {% block title %}Login{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
+
+
 	<div class="container">
 		<div class="row">
-			<div class="col-2"></div>
-			<div class="col-8">
-
-				<form method="POST">
+			<div class="col-4"></div>
+			<div class="col-4">
+			<h1 class="login_title">Login in order to make/review a booking</h1>
+				<form method="POST" class="form">
 					{% csrf_token %}
 					{{form | crispy}}
-					<button type="submit" class="btn btn-outline-dark">submit</button>
+					<button type="submit" class="btn btn-success">submit</button>
 				</form>
 			</div>
-			<div class="col-2"></div>
+			<div class="col-4"></div>
 		</div>
+
+
+		{% if request.user.is_authenticated %}
+        <div class="navbar nav-item">
+          <span class="nav-item text-light font-weight-bold">{{ request.user.username | capfirst }}</span>
+        </div>
+          <li>
+          <a class="nav-item nav-link blue-text text-lighten-2" href="{% url 'visitor:index' %}">Log Out</a>
+        </li>
+      {% else %}
+        <a class="nav-item nav-link blue-text text-lighten-2" href="{% url 'visitor:index' %}"></a>
+      {% endif %}
+
+
+
 
 	</div>
 {% endblock %}

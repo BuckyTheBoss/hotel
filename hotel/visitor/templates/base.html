@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,52 +9,33 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     <title>Welcome visitor</title>
   </head>
-  <body>
 
+  <body class="body">
 
+<a href="http://127.0.0.1:8000/hotel/" class="button7">The Hotel</a>
+<a href="something" class="button8">Reserve</a>
+<a href="something" class="button9">Reviews</a>
 
+{% if not request.user.is_authenticated %}
 
+<a href="http://127.0.0.1:8000/login/" class="button10">Login</a>
+<a href="http://127.0.0.1:8000/signup/" class="button11">Signup</a>
 
+{% else %}
+<a href="{% url 'visitor:logout' %}" class="button5">Logout</a>
 
+      {% endif %}
 
-<nav class="navbar navbar-inverse">
+<br>
+<br>
+<br>
+<br>
 
-  <ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active"  type='pull-right' href="#">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Reservations</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Reviews</a>
-  </li>
-
-<a class="nav-item nav-link" type='pull-right' href="{% url 'visitor:logout' %}">Logout</a>
- <a class="nav-item nav-link" href="{% url 'visitor:login' %}">Login</a>
-
-</ul>
-
-  </nav>
-
-
-<div class="container">
-  <div class="row">
-
-
-
- {% block content %}
-<h1>hotel</h1>
- {% endblock %}
-
-
+{% block content %}{% endblock %}
 
   </body>
 </html>
-
-
-

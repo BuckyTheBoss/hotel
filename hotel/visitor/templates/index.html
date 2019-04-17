@@ -1,20 +1,46 @@
-{% extends 'base.html' %}
-{% block title %}Visitor welcome{% endblock %}
-{% block content %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
- <div class="jumbotron">
-  <h1>Wecome to Torquay Towers</h1>
-  <p>Bok a spot at our bautifull hotel!</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-</div>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+    <title>Welcome visitor</title>
+  </head>
+
+  <body class="body">
+
+<h1 class="h1">Torqe Towers</h1>
+
+<a href="http://127.0.0.1:8000/hotel/" class="button2">The Hotel</a>
+<a href="something" class="button3">Reserve</a>
+<a href="something" class="button4">Reviews</a>
+{% if not request.user.is_authenticated %}
+<a href="{% url 'visitor:login' %}" class="button5">Login</a>
+<a href="http://127.0.0.1:8000/signup/" class="button6">Signup</a>
+{% else %}
+<a href="{% url 'visitor:logout' %}" class="button5">Logout</a>
+
+      {% endif %}
 
 
-<div class="container">
-
-    <h1>Wecome to Torquay Towers</h1>
 
 
-  <div class="row">
 
-{% endblock %}
-	
+<img src="https://static01.nyt.com/images/2018/08/19/travel/19FAVORITESweb/merlin_142322145_42350a68-2503-4c8a-ba36-69c29999884b-articleLarge.jpg?quality=75&auto=webp&disable=upscale" class="image" alt="Girl in a jacket">
+
+
+
+
+
+
+
+
+  </body>
+</html>
