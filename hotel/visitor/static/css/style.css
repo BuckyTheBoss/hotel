@@ -92,7 +92,7 @@ position:absolute; left:350px; top:100px;
 	font-size: 15px;
 }
 
-.card{
+.card1{
 	position:absolute; left:515px; top:115px;
 	background-color: #f209ea;
 	color: white;
@@ -180,5 +180,10 @@ position:absolute; left:350px; top:100px;
 	text-align: center;
 }
 
+.col-form-label {
+	color: #FFFFFF
+}
 
-
+.search-title {
+	color: #FFFFFF
+}

@@ -20,7 +20,7 @@
 
 <a href="http://127.0.0.1:8000/hotel/" class="button2">The Hotel</a>
 <a href="something" class="button3">Reserve</a>
-<a href="something" class="button4">Reviews</a>
+<a href="{% url 'visitor:reviews' %}" class="button4">Reviews</a>
 {% if not request.user.is_authenticated %}
 <a href="{% url 'visitor:login' %}" class="button5">Login</a>
 <a href="http://127.0.0.1:8000/signup/" class="button6">Signup</a>
