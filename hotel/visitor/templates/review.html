@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Review #{{review.id}}{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+          <div class="card">
+            <div class="card-header">
+              {{review.title}}
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{review.content}}</p>
+              <footer class="blockquote-footer">{{review.user.first_name}} {{review.user.last_name}}, <cite title="Source Title">{{review.timestamp | timesince}}</cite></footer>
+              {% if review.user == request.user %}
+              <a href="{% url 'visitor:delete_review' review.id%}" class="btn btn-sm btn-danger float-right ml-1">Delete Review</a>
+              <a href="{% url 'visitor:edit_review' review.id%}" class="btn btn-sm btn-warning float-right">Edit Review</a>
+              {% else %}
+              <a href="{% url 'visitor:reviews' %}" class="btn btn-sm btn-success float-right">All Reviews</a>
+              {% endif %}
+            </blockquote>
+          </div>
+        </div>
+  </div>
+</div>
+{% endblock %}
